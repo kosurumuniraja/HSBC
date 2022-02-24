@@ -27,7 +27,16 @@ stage ('compile and Build') {
         
     }
 }
-    
+stage ('Sonarqube Analysis'){
+           steps {
+           withSonarQubeEnv('SonarQube') {
+           sh '''
+           mvn clean package org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=false
+           mvn -e -B sonar:sonar -Dsonar.java.source=1.8 -Dsonar.host.url="${sonar_url}" -Dsonar.login="${sonar_username}" -Dsonar.password="${sonar_password}" -Dsonar.sourceEncoding=UTF-8
+           '''
+           }
+         }
+      }    
 }
 
 }
