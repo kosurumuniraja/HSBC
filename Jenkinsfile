@@ -15,8 +15,17 @@ stage('checkout')
 steps
 {
 // get some code from a github repository
-git url: 'https://github.com/kosurumuniraja/devops_project.git'
+git url: 'https://github.com/kosurumuniraja/achu.git'
 }
+}
+  stage('compile and Build')
+{
+    steps {
+        sh '''
+        mvn clean install -U -Dmaven.test.skip=true
+        '''
+        
+    }
 }
 }
 }
