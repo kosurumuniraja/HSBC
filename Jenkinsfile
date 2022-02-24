@@ -15,7 +15,7 @@ stage('checkout')
 steps
 {
 // get some code from a github repository
-git url: 'https://github.com/kosurumuniraja/devops_project.git'
+git url: 'https://github.com/kosurumuniraja/achu.git'
 }
 }
 }
