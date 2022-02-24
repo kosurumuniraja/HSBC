@@ -4,8 +4,8 @@ agent any
 tools
 {
 // insatall the maven version configured as "m3" and add it to the path.
-jdk 'java8'
-maven "maven-3.3.9"
+jdk 'Java 8'
+maven "Maven 3.3.9"
 }
 
 stages 
