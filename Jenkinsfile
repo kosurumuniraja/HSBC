@@ -18,5 +18,14 @@ steps
 git url: 'https://github.com/kosurumuniraja/achu.git'
 }
 }
+  stage('compile and build')
+{
+    steps {
+        sh '''
+        mvn clean install -U -Dmaven.test.skip=true
+        '''
+        
+    }
+}
 }
 }
