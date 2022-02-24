@@ -18,7 +18,7 @@ steps
 git url: 'https://github.com/kosurumuniraja/achu.git'
 }
 }
-  stage('compile and build')
+  stage('compile and Build')
 {
     steps {
         sh '''
