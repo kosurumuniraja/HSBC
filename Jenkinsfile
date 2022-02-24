@@ -1,6 +1,15 @@
 pipeline
 {
 agent any 
+    environment {
+
+      sonar_url = 'http://172.31.47.80:9000/'
+      sonar_username = 'admin'
+      sonar_password = 'admin'
+      nexus_url = '35.222.210.226:8081'
+      artifact_version = '0.0.1'
+
+ }
 tools
 {
 // insatall the maven version configured as "m3" and add it to the path.
