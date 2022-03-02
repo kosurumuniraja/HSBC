@@ -16,15 +16,20 @@ tools
 jdk 'Java 8'
 maven "Maven 3.3.9"
 }
-
+parameters {
+      
+      choice(
+        name: 'branches',
+        choices: ['master','develop','test'],
+        description: 'testing' )
 stages 
 {
-stage('checkout')
+stage('git clone')
 {
 steps
 {
 // get some code from a github repository
-git url: 'https://github.com/kosurumuniraja/achu.git'
+    git branch: '${branches}', url: 'https://github.com/kosurumuniraja/achu.git'
 }
 }
 stage ('compile and Build') {
