@@ -3,9 +3,9 @@ pipeline
 agent any 
     environment {
 
-      sonar_url = 'http://172.31.47.80:9000/'
+      sonar_url = 'http://54.209.185.116:9000/'
       sonar_username = 'admin'
-      sonar_password = 'admin'
+      sonar_password = 'muni'
       nexus_url = '35.222.210.226:8081'
       artifact_version = '0.0.1'
 
@@ -13,15 +13,10 @@ agent any
 tools
 {
 // insatall the maven version configured as "m3" and add it to the path.
-jdk 'Java 8'
-maven "Maven 3.3.9"
+jdk 'java 11'
+maven "Maven 3.6.3"
 }
-parameters {
-      
-      choice(
-        name: 'branches',
-        choices: ['master','develop','test'],
-        description: 'testing' )
+
 stages 
 {
 stage('git clone')
@@ -52,7 +47,6 @@ stage ('Sonarqube Analysis'){
          }
       }    
 }
-
 }
 
 
