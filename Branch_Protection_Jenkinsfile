@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage("Using curl example") {
+            steps {
+                script {
+                    final String url = "http://localhost:8080/job/Branch_protection/api/json"
+                    final String response = sh(script: "curl -s -u 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 https://api.github.com/repos/kosurumuniraja/Helloworld/branches/master/protection", returnStdout: true).trim()
+                    
+                    echo response
+                     sh(script: 'echo " if any condition above not satisfied in any repositpry the repository names should be published"')
+                }
+            }               
+        }
+        
+       
+    }
+}
